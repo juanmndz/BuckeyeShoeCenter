@@ -2,11 +2,34 @@
 <html>
 <head>
 	<title>Cartapp</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
+<div id="nav">	
+<form id="search">
+		<input type="text" name="serch" id="searchf" placeholder="SEARCH" />
+		<input type="submit" value="GO" id="search_btn" />
+	</form>
+	<h1 id="logo"><a href="/">BuckeyeShoeCenter</a></h1>
+	<div id="cart">	
+		<% if user_signed_in? %>
+			<%= link_to "Sign Out",  destroy_user_session_path, :id => "sign_out", method: :delete %>
+			<% else %>
+
+			<%= link_to "Sign In", new_user_session_path, :id => "sign_in" %>
+			<%= link_to "Sign Up", new_user_registration_path, :id => "sign_up" %>
+			<% end %>
+					<a href="/cart" class="cart">
+			<i class="fa fa-shopping-cart"></i>ITEMS( S ) $</a>
+	</div><!-- cart-->
+</div><!-- nav-->
+<p class="notice"></p>
+<!-- 
 	<nav id="nav">
 		<div id="page_nav">
 			<%= link_to "Home", root_path %>
@@ -25,10 +48,22 @@
 			<% end %>
 			</div>
 		</nav>
-<div id="main_wrap">
+ --><div id="main_wrap">
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		<%= yield %>
 </div>
+<div id="footer">
+<ul id="footer_nav">
+	<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "Shop", products_path %></a></li>
+	<li><%= link_to "About", page_about_path %></a></li>
+	<li><%= link_to "FAQS", page_faqs_path %></li>
+	<li><%= link_to "Contact", page_contact_path %></li>
+</ul>
+<img alt="Paypal" id="paypal" src="/assets/paypal.png" />
+</div>
+<p id="we">&copy; 2016 BuckeyeShoeCenter all rights reserved</p>
+
 	</body>
 	</html>
