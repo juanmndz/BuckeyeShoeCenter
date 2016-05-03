@@ -1,38 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Subcategory</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="products_wrap">
+<h1>SHOP</h1>
+<div id="first">
+  <h3>PAGES</h3>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About us</a></li>
+    <li><a href="/faqs">FAQs</a></li>
+    <li><a href="/contact">Contact us</a></li>
+    <li><a href="/privacy">Privacy policy</a></li>
+    <li><a href="/terms">Terms and Conditions</a></li>
+    <a href="/products/new" id="add_product">Add new Product</a>
+  </ul>
+</div>
+  <ul id="product_list">
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= product.price %></td>
-        <td><%= product.category %></td>
-        <td><%= product.subcategory %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><a href="/cart/<%= product.id %>"> Add To Cart</a></td>
-      </tr>
+        <li>
+         <a href="/products/<%= product.id %>">
+         <img alt="<%= product.title %>" src="<%= product.image_url %>"></a>
+         <a class ="title" href="/products/<%= product.id %>"><%= product.title %></a>
+         <p><%= product.description %></p>
+        <span><%= product.price %></span>
+        <a href="/cart/<%= product.id %>" class="add"> Add To Cart</a>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+    </ul>
+</div>

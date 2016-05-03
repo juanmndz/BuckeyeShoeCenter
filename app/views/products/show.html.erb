@@ -1,23 +1,11 @@
+<div id="show_product" style="margin-bottom: 500px;">
 <p id="notice"><%= notice %></p>
-<h3>This is my Product</h3>
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<h3><%= @product.title %></h3>
+<img alt="<%= @product.title %>" id="main_img" src="<%= @product.image_url %>"></a>
 
-<p>
-  <strong>Description:</strong>
+<div id="show_content">
+<p><strong>Description: </strong><br>
   <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
 </p>
 
 <p>
@@ -29,6 +17,12 @@
   <strong>Subcategory:</strong>
   <%= @product.subcategory %>
 </p>
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+ <a href="/cart/<%= @product.id %>" class="add"> Add To Cart</a>
+<br><br><br>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
