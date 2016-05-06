@@ -10,4 +10,10 @@ class PageController < ApplicationController
 
   def contact
   end
+
+  def privacy
+  end
+
+  def terms
+  end
 end

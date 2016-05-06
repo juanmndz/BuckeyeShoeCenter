@@ -4,11 +4,11 @@
   <h3>PAGES</h3>
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/about">About us</a></li>
-    <li><a href="/faqs">FAQs</a></li>
-    <li><a href="/contact">Contact us</a></li>
-    <li><a href="/privacy">Privacy policy</a></li>
-    <li><a href="/terms">Terms and Conditions</a></li>
+    <li><a href="/page/about">About us</a></li>
+    <li><a href="/page/faqs">FAQs</a></li>
+    <li><a href="/page/contact">Contact us</a></li>
+    <li><a href="/page/privacy">Privacy policy</a></li>
+    <li><a href="/page/terms">Terms and Conditions</a></li>
     <a href="/products/new" id="add_product">Add new Product</a>
   </ul>
 </div>
@@ -18,10 +18,10 @@
          <a href="/products/<%= product.id %>">
          <img alt="<%= product.title %>" src="<%= product.image_url %>"></a>
          <a class ="title" href="/products/<%= product.id %>"><%= product.title %></a>
-         <p><%= product.description %></p>
-        <span><%= product.price %></span>
+         <p><%= product.description.first(70) %></p>
+        <span>Price: $<%= product.price %></span>
         <a href="/cart/<%= product.id %>" class="add"> Add To Cart</a>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
     <% end %>
     </ul>
 </div>
